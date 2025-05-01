@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     {{ encore_entry_link_tags('app') }}
@@ -12,7 +13,6 @@
     </style>
 </head>
 	
-	{% block body %}
 <body>
     {{ encore_entry_script_tags('app') }}
     
@@ -47,6 +47,7 @@
 					{% block FormArmor_body %}
 						
 					{% endblock %}
+	{% block body %}
 				</div>
 				<div class="col-md-3">
 					  <h4>FormArmor c'est :</h4>
@@ -67,4 +68,5 @@
 						<img src="{{ asset('images/carte_Formarmor.jpg') }}" class="img-responsive" />
 				</div>
 			</div>
-	{% endblock %}
+	
+	{% endblock %} 

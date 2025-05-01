@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 	{{ encore_entry_link_tags('app') }}
@@ -16,8 +17,8 @@
 		{% endblock %}
 	</head>
 	
-	{% block body %}
 	{{ encore_entry_script_tags('app') }}
+	{% block body %}
 		{# Ici on va définir une banniere et un menu commun à toutes les pages du Bunble FormArmor #}
 			<div class="row">
 				<div class="col-md-12"> 
@@ -44,7 +45,14 @@
 						  <li id='menu3'><a href="{{ path('adminFormationListe') }}">Formation</a></li>
 						  <li id='menu4'><a href="{{ path('adminSessionListe') }}">Session</a></li>
 						  <li id='menu5'><a href="{{ path('adminPlanListe') }}">Plan de formation</a></li>
-						  <li id='menu6'><a href="{{ path('app_logout') }}">D&eacute;connexion</a></li>
+						  <li id="menu6">
+    						<a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+       							 Déconnexion
+    						</a>
+    						<form id="logout-form" action="{{ path('app_logout') }}" method="POST" class="d-none">
+        						<input type="hidden" name="_csrf_token" value="{{ csrf_token('logout') }}">
+    						</form>
+						</li>
 						</ul>
 					  </div>
 					</nav>
